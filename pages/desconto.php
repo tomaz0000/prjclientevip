@@ -1,20 +1,41 @@
 <?php
 
-$nome=$_GET["nome"];
-$valor=$_GET["valor"];
+$nome =$_GET["nome"];
+$valor =$_GET["valor"];
+
+$vip = $_GET ["vip"] ;
 
 
-// $vip = filter_input(INPUT_GET,"vip", FILTER_VALIDATE_FLOAT);
 
 $valor = filter_input(INPUT_GET,"valor", FILTER_VALIDATE_FLOAT);
 
+                   
 
-// tive dificuldades em verificar minha variavel 
- $desconto = $valor*0.10;
+
+
+if ($vip== "sim") {
+     $desconto = $valor*0.10;
  $pagar = $valor-$desconto;
- echo$pagar;
+    
+} else {
+    $desconto =0;
+    $pagar =$valor-$desconto;
+}
+
+ 
+$mensagemprincipal ="<p> nome é " . $nome.
+ "<p> voce recebeu um desconto de  " .$desconto.
+
+ "</p> total é   "  .$pagar
+
+;
 
 
+
+ echo$mensagemprincipal 
+ ;
+
+?>
 
 
 
